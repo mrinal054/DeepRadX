@@ -1,8 +1,12 @@
 model:
-  name: EnsembleEnet2SepIn
+  name: EnsembleResNet18Ft512_EfficientNetB2SFt1408
   subname: null # subname is used only for pretrained_models
-  dropout: 0.3
-  out_channels: [1024, 512, 256]
+  dropout: 0.3 # used in some models
+  out_channels: [5376, 1024, 512, 256] # fc layers in classification head
+  pretrain: True # loads pretrained models
+  activation: leakyrelu # currently used in PscSEWithCAB
+  reduction: 16 # required for PscSE-based models
+  separate_inputs: 3 # used in ensembled models currently
   
 train:
   epochs: 500
@@ -11,16 +15,19 @@ train:
   save_weights_only: True
   save_best_model: True 
   save_last_model: False
+  save_initial_model: False # useful in cross-validation, save a copy of the base model only
   period: 20
   early_stop: True
   patience: 100
-  batch_size: 32
+  batch_size: 64
   one_hot: True
   n_classes: 2
+  kfold: 5
   
 test:
   base_model_name: null # provide base_model_name if phase is test only
   type: both # option: best, average, both
+  # tta: False # Test-time augmentation
 
 phase: both # either train, test, or both
   
@@ -33,16 +40,16 @@ directories:
   result_dir: /research/m324371/Project/adnexal/results/
   
 data:
-  only_adnexal: False
+  only_adnexal: False # True
   only_fluid: True
   only_solid: True
   draw_bbox: False
   crop_roi: True
-  margin: 200
+  margin: 200 # 0
   resize: True
   keep_aspect_ratio: True
   target_size: [224, 224]
-  concat: ["image", "fluid", "solid"]
+  concat: ["image", "fluid", "solid"] # ["adnexal", "fluid", "solid"]
   
 loss:
   name: ce

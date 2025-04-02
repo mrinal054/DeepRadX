@@ -93,8 +93,8 @@ A successful run will store the following information in the `result` directory:
 
 | Model | AD | Fluid | Solid | Doppler | Accuracy | Precision | Recall | F1-score | AUC | Param (M)|
 | :---: | :---: |  :---: |  :---: |  :---: | :---: |  :---: |  :---: |  :---: |  :---: |  :---: |
-| [ResNet18](https://gitlab.mayo.edu/kline-lab/adnexal_masses_dl/-/blob/main/networks/base_models_collection.py?ref_type=heads) | &check; | &cross; | &cross; | &cross; | 0.849 | 0.849 | 0.849 | 0.849 | 0.87 | - | 
-| [ResNet18](https://gitlab.mayo.edu/kline-lab/adnexal_masses_dl/-/blob/main/networks/ensemble_res18_sep_input.py?ref_type=heads) | &check; | &check; | &check; | &cross; | 0.872 | 0.872 | 0.872 | 0.872 | 0.93 | - |
-| [EfficientNetB2](https://gitlab.mayo.edu/kline-lab/adnexal_masses_dl/-/blob/main/networks/base_models_collection.py?ref_type=heads) | &check; | &cross; | &cross; | &cross; | 0.854 | 0.857 | 0.854 | 0.854 | 0.93 | - | 
-| [ResNet18+EfficientNetB2](https://gitlab.mayo.edu/kline-lab/adnexal_masses_dl/-/blob/main/networks/ensemble_res18_enetb2s.py?ref_type=heads) | &check; | &cross; | &cross; | &cross; | 0.86 | 0.86 | 0.86 | 0.86 | **0.94** | - | 
+| [ResNet18](https://github.com/mrinal054/DeepRadX/blob/main/networks/base_models_collection.py#L22) | &check; | &cross; | &cross; | &cross; | 0.849 | 0.849 | 0.849 | 0.849 | 0.87 | - | 
+| [ResNet18](https://github.com/mrinal054/DeepRadX/blob/main/networks/base_models_collection.py#L22) | &check; | &check; | &check; | &cross; | 0.872 | 0.872 | 0.872 | 0.872 | 0.93 | - |
+| [EfficientNetB2](https://github.com/mrinal054/DeepRadX/blob/main/networks/base_models_collection.py#L54) | &check; | &cross; | &cross; | &cross; | 0.854 | 0.857 | 0.854 | 0.854 | 0.93 | - | 
+| [ResNet18+EfficientNetB2](https://github.com/mrinal054/DeepRadX/blob/main/networks/ensemble_res18_enetb2s.py#L6) | &check; | &cross; | &cross; | &cross; | 0.86 | 0.86 | 0.86 | 0.86 | **0.94** | - | 
 [RadiomicMLP_PretrainedEnsembleResNet18Ft512_EfficientNetB2SFt1408](https://github.com/mrinal054/DeepRadX/blob/main/networks/ensemble_radiomics.py#L29) | &check; | &check; | &check; | &cross; | **0.90** | **0.90** | **0.90** | **0.90** | **0.94** | - |

@@ -1,0 +1,59 @@
+model:
+  name: BaseModelSepIn
+  subname: mobilenet_v3_small # subname is used only for pretrained_models
+  dropout: 0.3 # used in some models
+  out_channels: [1728, 1024, 512, 256] # fc layers in classification head
+  pretrain: True # loads pretrained models
+  cls_activation: relu # used in classification head
+  activation: leakyrelu # currently used in PscSEWithCAB
+  reduction: 16 # required for PscSE-based models
+  separate_inputs: 3 # used in ensembled models currently
+  
+train:
+  epochs: 500
+  lr: 0.001
+  weight_decay: 0.001
+  save_weights_only: True
+  save_best_model: True 
+  save_last_model: False
+  save_initial_model: True # useful in cross-validation, save a copy of the base model only
+  period: 20
+  early_stop: True
+  patience: 100
+  batch_size: 128
+  one_hot: True
+  n_classes: 2
+  
+test:
+  base_model_name: null # provide base_model_name if phase is test only
+  type: both # option: best, average, both
+
+phase: both # either train, test, or both
+  
+directories:
+  root: /research/m324371/Project/adnexal/
+  excel_dir: /research/m324371/Project/adnexal/adnexal_dataset_all.xlsx
+  train_im_dir: /research/m324371/Project/adnexal/dataset/train/
+  val_im_dir: /research/m324371/Project/adnexal/dataset/train/
+  test_im_dir: /research/m324371/Project/adnexal/dataset/test/
+  result_dir: /research/m324371/Project/adnexal/results/
+  
+data:
+  only_adnexal: False
+  only_fluid: True
+  only_solid: True
+  draw_bbox: False
+  crop_roi: True
+  margin: 200
+  resize: True
+  keep_aspect_ratio: True
+  target_size: [224, 224]
+  concat: ["image", "fluid", "solid"]
+  
+loss:
+  name: ce
+  
+normalize:
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+  

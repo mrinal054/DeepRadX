@@ -3,8 +3,8 @@
 ## <img src="https://user-images.githubusercontent.com/74038190/213844263-a8897a51-32f4-4b3b-b5c2-e1528b89f6f3.png" width="50px" /> &nbsp; Latest News
 
 :boom: **Adnexal masses classifier v0 released.** <br>
-:boom: **New trainerv7 released. Supports tensorboard.** <br>
-:boom: **Combined radiomic and deep learning features (trainerv8) are coming soon.** <br>
+:boom: **New trainerv7XX released. Supports tensorboard.** <br>
+:boom: **Combined radiomic and deep learning features (trainerv8XX) are available now.** <br>
 
 ## Overview
 This repository presents a deep learning-based framework specifically designed for the classification of cancer from adnexal masses. The model leverages advanced neural network architectures to accurately distinguish cancerous from non-cancerous cases, making it a valuable tool for early diagnosis and clinical decision-making. While the primary focus is on adnexal masses, the modular design and robust architecture allow for easy adaptation to other classification problems across different medical or non-medical datasets. The framework incorporates best practices in data preprocessing, augmentation, and model training, ensuring high performance and generalizability. This versatility underscores its potential as a foundational model for various classification tasks.
@@ -39,7 +39,7 @@ python trainer.py --config ./config/template.yaml
 ```
 Or, if you have multi-core GPU:<br>
 ```python
-CUDA_VISIBLE_DEVICES=2 nohup python trainer.py --config ./config/template.yaml >log_train.log &
+CUDA_VISIBLE_DEVICES=2 nohup python trainer_vXXX.py --config ./config/template.yaml >log_train.log &
 ```
 
 
